@@ -1,0 +1,14 @@
+CC=cc
+CFLAGS=-c
+LDFLAGS=-o
+SOURCES=quersumme.c
+OBJECT=$(SOURCES:.c=.o)
+EXECUTABLE=$(SOURCES:.c=.x)
+
+all: quersumme.o quersumme.x
+
+$(OBJECT): $(SOURCES)
+	$(CC) $(CFLAGS) $(SOURCES) 
+
+$(EXECUTABLE): $(OBJECT)
+	$(CC) $(OBJECT) $(LDFLAGS) $(EXECUTABLE)

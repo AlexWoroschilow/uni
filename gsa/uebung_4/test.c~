@@ -1,0 +1,12 @@
+
+
+#include <stdio.h>
+
+
+int main()
+{
+  int c;
+  c = (1001 & 0001);
+  printf("%d\n", c);
+  return(0);
+}
