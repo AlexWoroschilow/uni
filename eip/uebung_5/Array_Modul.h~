@@ -1,0 +1,17 @@
+
+
+  /* Arraz_Modul.h: Scannen, invertieren und sortieren von Arrays. */
+  
+#ifndef ARRAY_MODUL
+#define ARRAY_MODUL
+
+  
+  
+  
+  
+  int scanarray(int arr1[], int length);
+  int invertarray(int arr1[], int length);
+  int sortarray(int arr1[], int length);
+  
+  
+#endif

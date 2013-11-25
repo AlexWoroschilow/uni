@@ -1,0 +1,108 @@
+#include <stdio.h>
+
+
+
+/* --------------------------------------------------------------------------- */
+/* Please write an appropriate comment */
+/* --------------------------------------------------------------------------- */
+int pvalues(int arrVar[]){
+
+  int i;
+
+  /* Now some array stuff... */
+  printf("\n >> Printing array values\n");
+  for(i=0;i<3;i++){
+    printf("    ArrVar%d is %d at address %p\n", i, arrVar[i], &(arrVar[i]));
+  }
+  printf("\n    &arrVar[x] - &arrVar[x-1] == 4; (e.g. %p - %p)\n    -> One space in an array is 4 Bytes in size.\n\n", &(arrVar[1]), &(arrVar[0])); 
+  return 0;
+}
+
+/* --------------------------------------------------------------------------- */
+/* Please write an appropriate comment */
+/* --------------------------------------------------------------------------- */
+int cvalues1(int *arrVar){
+
+  int i;
+
+  /* Now some array stuff... */
+  printf("\n >> WHAT HAPPENS HERE\n    Changing values of the Array.\n    *arrVar1 is entered and increased with ++ ((*arrVar1[i])++)");
+  for(i=0;i<3;i++){
+    (arrVar[i])++;
+  }
+  return 0;
+}
+
+/* --------------------------------------------------------------------------- */
+/* Please write an appropriate comment */
+/* --------------------------------------------------------------------------- */
+int cvalues2(int **arrVar){
+
+  int i;
+
+  /* Now some array stuff... */
+  printf("\n >> WHAT HAPPENS HERE\n");
+  for(i=0;i<3;i++){
+    (*arrVar)[i] = 42;
+  }
+  return 0;
+}
+
+
+/* --------------------------------------------------------------------------- */
+/* THIS IS THE MAIN PROGRAM */
+/* --------------------------------------------------------------------------- */
+int main()
+{
+
+  int i;
+
+  int var1;
+  int var2;
+  int *var3;
+  int arrVar1[3];
+  int *arrVar2;
+  int **arrVar3;
+
+  /* Basic data types and pointers */
+  var1=1;  /* Assignment of integer value */
+  var2=2;  /* Assigment of integer value */
+  var3=&var1; /* Check ich net Assignment of address */
+
+  printf(" \n -------------------- BASIC -------------------\n\n");
+  printf(" >> Var1 is %d at address %p \n", var1, &var1);
+  printf(" >> Var2 is %d at address %p \n", var2, &var2);
+  printf(" >> Var3 is %d at address %p \n", *var3, var3);
+  printf(" >> Value of Var3 (var3 == %p) is equivalent with adress of Var1 (&var1 == %p)\n", var3, &var1);
+
+  (*var3) = 42; /* Does this increment have an effect on var1 ? */
+  printf("\n >> Changing basic values --> done!\n\n");
+  printf(" >> Var1 is %d at address %p \n", var1, &var1);
+  printf(" >> Var3 still points at Var1 (*var3 == %d)\n", *var3);
+  
+
+  /* Now some array stuff... */
+  printf(" \n -------------------- ARRAY1 -------------------\n");
+  for(i=0;i<3;i++){
+    arrVar1[i] = i;
+  }
+  pvalues(arrVar1);
+  cvalues1(arrVar1);
+  pvalues(arrVar1);
+
+
+  printf(" \n -------------------- ARRAY2 -------------------\n\n    arrVar2 gets assigned to arrVar1 (arrVar2 = arrVar1)\n    Same values as above.\n\n");
+  /* What happens here ? */
+  arrVar2 = arrVar1;
+  pvalues(arrVar2);
+
+
+  printf(" \n -------------------- ARRAY3 -------------------\n\n    arrVar3 gets assigned to the adress of arrVar2 (arrVar3 = &arrVar2) BUT *arrVar3 is printed (pvalues(*arrVar3)\n    Same values as above.\n\n");
+  arrVar3 = &arrVar2;
+  pvalues(*arrVar3);
+  cvalues2(arrVar3);
+  printf("    Every value of arrVar3 gets set to 42 (arrVar3[i] = 42).\n    Since arrVar3 got assigned to the adress of arrVar2 above,\n   the adresses are the same.\n");
+  pvalues(*arrVar3);
+  
+  return 0;
+}

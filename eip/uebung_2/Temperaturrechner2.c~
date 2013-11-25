@@ -1,0 +1,24 @@
+/* Temperaturrechner */
+
+#include <stdio.h>
+
+int main() {
+  float t_eing;									/* Eingabe */
+  float t_ausg;									/* Ausgabe */
+  int t_einh;									/* Einheit */
+  printf("\n\n  Willkommen zu Ihrem persoenlichen Temperaturrechner!\n");	/* Begruessung */
+  printf("  Temperatur: ");							/* Benutzereingabe */
+  scanf("%f", &t_eing);								/* Dateneingabe */
+  printf("  Welche Einheit hat Ihre Eingabe? (Celsius = 0/ Fahrenheit = 1):");	/* Eingabe Einheit */
+  scanf("%d", &t_einh);
+  switch(t_einh) {
+    case 0: t_ausg = 9 * t_eing / 5 + 32; 
+	 printf("  %.2f Grad Celsius entsprechen %.2f Grad Fahrenheit.\n", t_eing, t_ausg);
+	 break;
+    case 1: t_ausg = (t_eing - 32) / 9 * 5; 
+	 printf("  %.2f Grad Fahrenheit entsprechen %.2f Grad Celsius.\n", t_eing, t_ausg);
+	 break;
+    default: printf("  Incorrecte Eingabe. Bitte waehle zwischen 0 (Celsius) und 1 (Fahrenheit).");
+  }
+  return(0);
+}
