@@ -1,0 +1,11 @@
+5. Konzeptionellen Untershied zwischen 1 und 3:
+
+Bei der Ermittlung der Anzahl der möglichen Alignments entspricht jeder Wert (für jedes m und n ausser für m oder n = 0) 
+dabei der Summe aus drei anderen Werten und kann selbst zur Berechnung von bis zu drei weiteren Werten herangezogen werden. 
+Der rekursive Algorithmus ruft in jeder Funktion (sofern die Terminierungs Bedingung noch nicht erfüllt ist) 
+drei weitere auf um so die Werte von oben nach unten zu bestimmen. Dabei wird jeder Schritt neu berechnet auch wenn 
+der entsprechende Wert bereits durch einen vorhergehenden Funktionsaufruf ermittelt wurde. 
+Der Matrix unterstützte Algorithmus hingegen berechnet die Werte von unten nach oben. Ein bereits ermitteltes 
+Ergebnis kann dabei zur Berechnung eines höheren wieder herangezogen werden und muss nicht neu bestimmt werden. 
+
+
