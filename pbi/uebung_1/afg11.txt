@@ -1,0 +1,9 @@
+  Zeilen
+  66275 ecoli.seq
+  16731 swiss
+
+  Zeichen (ohne \n)
+  4705496 ecoli.seq
+  1014302 swiss
+  
+
