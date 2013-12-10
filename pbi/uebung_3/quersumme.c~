@@ -1,42 +1,28 @@
+/* Berechnung einer Quersumme */
 
-
-  /* Quersummenberechnung */
-
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-
-int quersumme(int zahl, int len)
-{
-  int i;
-  int qsum = 0;
+  #include <stdio.h>
+  #include <ctype.h>
+  #include <string.h>
+  #include <stdlib.h>
   
-  for(i = 0; i < len; i++) {
-  qsum += zahl % 10;
-  zahl = zahl / 10;
+  
+  int main(int argc, char *argv[])
+  {
+    int i, num;
+    int qs = 0;
+    if(argc != 2) {
+      printf("\t Bitte das folgende Schema beachten: ./quersumme.x <Zahl> \n");
+      return(EXIT_FAILURE);
+    }
+    if((sscanf(argv[1], "%d", &num)) != 1) {
+      printf("\t Bitte eine Zahl eingeben.\n");
+      return(EXIT_FAILURE);
+    }
+    for(i = 0; i < strlen(argv[1]); i++) {
+      qs += (num % 10);
+      num /= 10;
+    }
+    printf("\t Die Quersumme lautet: %d\n", qs);      
+    return(EXIT_SUCCESS);
   }
-  
-  return(qsum);
-}
-
-
-int main(int argc, char *argv[]) 
-{
-  int zahl, len;
-
-  if(argc != 2) {
-    printf("\t Bitte Syntax beachten: ./quersumme.x <Zahl>\n");
-    exit(EXIT_FAILURE);
-  }
-  
-  len = strlen(argv[1]);
-
-  if((sscanf(argv[1], "%d", &zahl)) != 1) {
-    printf("\t Bitte eine ZAHL eingeben.\n");
-    exit(EXIT_FAILURE);
-  }
-  
-  printf("\t Die Quersumme lautet: %d\n", qwuersumme(zahl, len));
-  
-  return(EXIT_SUCCESS);
-}
+    

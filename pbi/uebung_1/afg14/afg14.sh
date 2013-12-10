@@ -1,0 +1,13 @@
+#! /bin/sh
+
+echo
+echo "  >>afg14"
+
+cd /usr/include 
+
+echo `find -iname "^std.*" | find -iname ".*.h$"`
+
+cd
+
+echo
+echo

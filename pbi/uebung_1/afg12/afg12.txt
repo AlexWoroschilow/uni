@@ -1,0 +1,1 @@
+mv datei1 datei3 ; mv datei2 datei1 ; mv datei3 datei2
